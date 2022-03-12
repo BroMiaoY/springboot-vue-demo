@@ -1,5 +1,5 @@
-#vue+springboot前后端分离
-##学习案例--信息管理系统
+# vue+springboot前后端分离
+## 学习案例--信息管理系统
 
 ## Project setup
 ```

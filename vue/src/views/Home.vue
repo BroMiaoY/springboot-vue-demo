@@ -91,6 +91,8 @@
 
 <script>
 
+import request from "@/utils/request";
+
 export default {
   name: 'HomeView',
   components: {
@@ -114,7 +116,9 @@ export default {
       this.form = {}
     },
     save() {
-
+      request.post("/user", this.form).then(res => {
+        console.log(res)
+      })
     },
     handleEdit() {
 

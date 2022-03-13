@@ -30,17 +30,30 @@
 
     <div style="margin: 10px 0">
       <el-pagination
-          :currentPage="currentPage"
-          :page-size="10"
-          :page-sizes="[5, 10, 20]"
+          v-model:currentPage="currentPage4"
+          v-model:page-size="pageSize4"
+          :page-sizes="[100, 200, 300, 400]"
           :small="small"
           :disabled="disabled"
           :background="background"
           layout="total, sizes, prev, pager, next, jumper"
-          :total="total"
+          :total="400"
           @size-change="handleSizeChange"
-          @current-change="handleCurrentChange">
+          @current-change="handleCurrentChange"
+      >
       </el-pagination>
+<!--      <el-pagination-->
+<!--          :currentPage="currentPage"-->
+<!--          :page-size="10"-->
+<!--          :page-sizes="[5, 10, 20]"-->
+<!--          :small="small"-->
+<!--          :disabled="disabled"-->
+<!--          :background="background"-->
+<!--          layout="total, sizes, prev, pager, next, jumper"-->
+<!--          :total="total"-->
+<!--          @size-change="handleSizeChange"-->
+<!--          @current-change="handleCurrentChange">-->
+<!--      </el-pagination>-->
     </div>
   </div>
 </template>

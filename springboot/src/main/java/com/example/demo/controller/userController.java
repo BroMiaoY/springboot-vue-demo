@@ -1,23 +1,26 @@
 package com.example.demo.controller;
 
 import com.example.demo.common.Result;
-import com.example.demo.entity.User;
+import com.example.demo.entity.user;
 import com.example.demo.mapper.UserMapper;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
-@RestController
-@RequestMapping("/user")
-public class userController {
 
+@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600) //解决跨域问题
+@RestController
+@RequestMapping(value = "/user", method = RequestMethod.POST)
+public class userController {
+    @Autowired
     @Resource
     UserMapper userMapper;
     @PostMapping
-    public Result<?> save(@RequestBody User user) {
+    public Result<?> save(@RequestBody user user) {
+        if(user.getPassword() == null){
+            user.setPassword("123456");
+        }
         userMapper.insert(user);
         return Result.success();
     }
